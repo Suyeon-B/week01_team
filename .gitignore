@@ -1,1 +1,3 @@
-/*.txt
+# .idea 파일
+.idea/
+*.txt

@@ -1,23 +1,39 @@
 import sys
+
 sys.stdin = open("input.txt", "rt")
 input = sys.stdin.readline
 
-n = int(input())
-borad = [[0]*n for _ in range(n)]
+# n = int(input())
+n = 15
 
-answer = 0
-def attack(x,y):
-  return
-def queen(cnt):
-  global answer
-  if cnt == n:
-    answer +=1
-    return
-  
+pos = [0] * n
+flag_a = [False] * n
+flag_b = [False] * (2*n - 1)
+flag_c = [False] * (2*n - 1)
+
+cnt = 0
+def put() -> None:
+
   for i in range(n):
     for j in range(n):
-      if borad[i][j] == 0:
-        borad[i][j] = 'Q'
-        # 공격 가능 부분 표시
+      print('■' if pos[i] == j else '□', end='')
+    print()
+  print()
 
-queen(0)
+def set(i: int) -> None:
+  global cnt
+  #i열에 퀸 배치
+  for j in range(n):
+    if not flag_a[j] and not flag_b[i+j] and not flag_c[i-j+(n-1)]:
+      pos[i] = j
+      if i == n-1:
+        # put()
+        cnt +=1
+        return
+      else:
+        flag_a[j] = flag_b[i+j]= flag_c[i-j+(n-1)] =True
+        set(i+1)
+        flag_a[j] = flag_b[i+j]= flag_c[i-j+(n-1)] =False
+
+set(0)
+print(cnt)
