@@ -12,13 +12,6 @@ flag_b = [False] * (2*n - 1)
 flag_c = [False] * (2*n - 1)
 
 cnt = 0
-def put() -> None:
-
-  for i in range(n):
-    for j in range(n):
-      print('■' if pos[i] == j else '□', end='')
-    print()
-  print()
 
 def set(i: int) -> None:
   global cnt
@@ -27,7 +20,6 @@ def set(i: int) -> None:
     if not flag_a[j] and not flag_b[i+j] and not flag_c[i-j+(n-1)]:
       pos[i] = j
       if i == n-1:
-        # put()
         cnt +=1
         return
       else:
