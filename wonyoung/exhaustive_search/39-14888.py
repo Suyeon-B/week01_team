@@ -26,13 +26,11 @@ def solution(index, result):
     solution(index+1, result - numbers[index])
     sign[1] +=1
 
-
   if sign[2] > 0:
     sign[2] -=1
     solution(index+1, result * numbers[index])
     sign[2] +=1
 
-  
   if sign[3] > 0:
     sign[3] -=1
     solution(index+1, int(result / numbers[index]))

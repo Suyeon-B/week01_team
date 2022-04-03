@@ -11,18 +11,13 @@ result = 1e9
 def solution(start, cnt, cost,city):
   # 모든 도시 방문 출발 도시로 이동
   global result
-  if cnt == n:
-    if arr[city][start] == 0 :
-      # 출발한 도시로 돌아 갈 수 없을 때 return
-      return
+  if cnt == n and arr[city][start] !=0:
     cost += arr[city][start]
     result = min(cost, result)
     return
   
   for i in range(n):
-    if not visited[i]:
-      if arr[city][i] == 0:
-        continue
+    if not visited[i] and arr[city][i] != 0:      
       visited[i] = True
       solution(start, cnt+1, cost+arr[city][i], i)
       visited[i] = False
