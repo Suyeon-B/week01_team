@@ -1,6 +1,7 @@
 # 10971
 # try 27496128번째 쯤... 시간 초과 나옴 ㅠㅠ
 # 불필요한 연산 최적화 후.. 틀렸다고 나옴 하하
+# result 초기화 안해서 틀렸던 것!!! 하하하하하하
 n = int(input())
 paths = []
 distances = {}
@@ -43,6 +44,7 @@ def find_min_path(start):
                     if result < results[0]:
                         continue
                     else:
+                        result = 0
                         break
     return results[0]
 
