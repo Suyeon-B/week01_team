@@ -1,5 +1,6 @@
 # 10971
 # 4:57 -> 5:35
+# 드디어 진짜 정복한 외판원!
 import itertools
 n = int(input())
 result = 0
